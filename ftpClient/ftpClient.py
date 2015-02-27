@@ -37,7 +37,7 @@ print(
 connected = True
 while( connected ):
 	foobar = raw_input('>> ')
-	foobar = foobar.split(' ')
+	foobar = foobar.split(' ', 1)
 	comm = foobar[0]
 	if(len(foobar) > 1):
 		path = foobar[1]
@@ -61,7 +61,9 @@ while( connected ):
 		s.sendall("RETR " + path + "\r\n")
 		print s.recv(1024)
 		print s.recv(1024)
-		print l.recv(1024)
+		f = open(path, "w")
+		f.write(l.recv(1024))
+		f.close()
 		l.close()
 	elif(comm == "ascii"):
 		s.sendall("TYPE A")
