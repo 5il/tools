@@ -10,6 +10,8 @@ echo "deb http://security.kali.org/kali-security kali/updates main contrib non-f
 
 python -c 'proxy = raw_input("Proxy name: "); out = "Acquire::http::Proxy \"http://" + proxy + ":80\";" if proxy != "" else ""; print out' > /etc/apt/apt.conf
 
+pip install requests --upgrade
+
 apt-get update
 apt-get -y upgrade
 
