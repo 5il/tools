@@ -5,10 +5,10 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybinding/custom0/ command "gnome-terminal"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybinding/custom0/ binding "<Primary><Alt>t"
 
-echo "deb http://http.kali.org/kali kali main contrib non-free" > /etc/apt/sources.list
-echo "deb http://security.kali.org/kali-security kali/updates main contrib non-free" > /etc/apt/sources.list
+echo "deb http://http.kali.org/kali kali main contrib non-free" >> /etc/apt/sources.list
+echo "deb http://security.kali.org/kali-security kali/updates main contrib non-free" >> /etc/apt/sources.list
 
-python -c 'proxy = raw_input("Proxy name: "); out = "Acquire::http::Proxy \"http://" + proxy + ":80\";" if proxy != "" else ""; print out' > /etc/apt/apt.conf
+python -c 'proxy = raw_input(""); out = "Acquire::http::Proxy \"http://" + proxy + ":80\";" if proxy != "" else ""; print out' > /etc/apt/apt.conf
 
 pip install requests --upgrade
 
