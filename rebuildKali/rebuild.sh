@@ -8,7 +8,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 echo "deb http://http.kali.org/kali kali main contrib non-free" >> /etc/apt/sources.list
 echo "deb http://security.kali.org/kali-security kali/updates main contrib non-free" >> /etc/apt/sources.list
 
-python -c 'proxy = raw_input(""); out = "Acquire::http::Proxy \"http://" + proxy + ":80\";" if proxy != "" else ""; print out' > /etc/apt/apt.conf
+python -c 'proxy = raw_input(""); oF = open("/etc/apt/apt.conf", "a"); out = "Acquire::http::Proxy \"http://" + proxy + ":80\";\n" if proxy != "" else ""; oF.write(out)'
 
 pip install requests --upgrade
 
