@@ -16,9 +16,10 @@ pip install requests --upgrade
 
 apt-get update
 apt-get -y upgrade
+apt-get install linux-headers-$(uname -r)
 
-mv index.php /var/www/
-mv upload.php /var/www/
+mv index.php /var/www/html/
+mv upload.php /var/www/html/
 
 sed -i 's/.*post_max_size *=.*/post_max_size = 128M/' /etc/php5/apache2/php.ini
 sed -i 's/.*upload_max_filesize *=.*/upload_max_filesize = 128M/' /etc/php5/apache2/php.ini
@@ -59,4 +60,5 @@ until [ $gtg -eq 1 ]; do
  fi
 done
 
+echo "You should probably reboot now."
 echo "Thanks for riding the pwn train. Have a nice day!"
