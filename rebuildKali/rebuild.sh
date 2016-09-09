@@ -6,10 +6,6 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Primary><Alt>t"
 echo "Added Launch Terminal keyboard shortcut (Ctrl+Alt+T)"
 
-echo "deb http://http.kali.org/kali sana main contrib non-free" >> /etc/apt/sources.list
-echo "deb-src http://http.kali.org/kali sana main contrib non-free" >> /etc/apt/sources.list
-echo "Added necessary Kali 2.0 repositories"
-
 python -c 'proxy = raw_input("Enter proxy name (blank if none): "); oF = open("/etc/apt/apt.conf", "a"); out = "Acquire::http::Proxy \"http://" + proxy + ":80\";\n" if proxy != "" else ""; oF.write(out); oF.close()'
 
 pip install requests --upgrade
@@ -21,8 +17,8 @@ apt-get install linux-headers-$(uname -r)
 mv index.php /var/www/html/
 mv upload.php /var/www/html/
 
-sed -i 's/.*post_max_size *=.*/post_max_size = 128M/' /etc/php5/apache2/php.ini
-sed -i 's/.*upload_max_filesize *=.*/upload_max_filesize = 128M/' /etc/php5/apache2/php.ini
+sed -i 's/.*post_max_size *=.*/post_max_size = 128M/' /etc/php/7.0/apache2/php.ini
+sed -i 's/.*upload_max_filesize *=.*/upload_max_filesize = 128M/' /etc/php/7.0/apache2/php.ini
 echo "File uploads set up. Run 'service apache2 start' in the terminal and browse to http://ip_address/index.php in a browser"
 
 mv payloads/ ~/
