@@ -41,6 +41,39 @@ done
 
 gtg=0
 until [ $gtg -eq 1 ]; do
+ echo -n "Would you like to install Empire? [y/n]: "
+ read pick
+ if [ $pick == "y" ]; then
+  wget https://github.com/adaptivethreat/Empire/archive/master.zip
+  unzip Empire-master.zip
+  mv Empire-master Empire
+  ./Empire/setup/install.sh
+  gtg=1
+ elif [ $pick == "n" ]; then
+  echo "Skipping Empire install..."
+  gtg=1
+ else
+  echo "Invalid option!"
+ fi
+done
+
+gtg=0
+until [ $gtg -eq 1 ]; do
+ echo -n "Would you like to install Peach Fuzzer? [y/n]: "
+ read pick
+ if [ $pick == "y" ]; then
+  echo "Great! Do it yourself..."
+  gtg=1
+ elif [ $pick == "n" ]; then
+  echo "Skipping Peach install..."
+  gtg=1
+ else
+  echo "Invalid option!"
+ fi
+done
+
+gtg=0
+until [ $gtg -eq 1 ]; do
  echo -n "Would you like to install MetasploitPro? [y/n]: "
  read pick
  if [ $pick == "y" ]; then
