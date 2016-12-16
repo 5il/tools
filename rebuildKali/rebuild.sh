@@ -45,9 +45,10 @@ until [ $gtg -eq 1 ]; do
  read pick
  if [ $pick == "y" ]; then
   wget https://github.com/adaptivethreat/Empire/archive/master.zip
-  unzip Empire-master.zip
-  mv Empire-master Empire
-  ./Empire/setup/install.sh
+  unzip master.zip
+  mv Empire-master ~/Desktop/Empire
+  ~/Desktop/Empire/setup/install.sh
+  rm master.zip
   gtg=1
  elif [ $pick == "n" ]; then
   echo "Skipping Empire install..."
