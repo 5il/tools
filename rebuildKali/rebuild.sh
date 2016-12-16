@@ -24,6 +24,9 @@ echo "File uploads set up. Run 'service apache2 start' in the terminal and brows
 mv payloads/ ~/
 chattr +i ~/payloads/*
 
+echo "Turning on audio"
+systemctl --user enable pulseaudio && systemctl --user start pulseaudio
+
 gtg=0
 until [ $gtg -eq 1 ]; do
  echo -n "Would you like to install Virtualbox? [y/n]: "
