@@ -31,10 +31,10 @@ gtg=0
 until [ $gtg -eq 1 ]; do
  echo -n "Would you like to install Virtualbox? [y/n]: "
  read pick
- if [ $pick == "y" ]; then
+ if [ $pick == "y" ] || [ $pick == "Y" ]; then
   apt-get -y install virtualbox
   gtg=1
- elif [ $pick == "n" ]; then
+ elif [ $pick == "n" ] || [ $pick == "N" ]; then
   echo "Skipping Virtualbox install..."
   gtg=1
  else
@@ -46,14 +46,14 @@ gtg=0
 until [ $gtg -eq 1 ]; do
  echo -n "Would you like to install Empire? [y/n]: "
  read pick
- if [ $pick == "y" ]; then
+ if [ $pick == "y" ] || [ $pick == "Y"]; then
   wget https://github.com/adaptivethreat/Empire/archive/master.zip
   unzip master.zip
   mv Empire-master ~/Desktop/Empire
   ~/Desktop/Empire/setup/install.sh
   rm master.zip
   gtg=1
- elif [ $pick == "n" ]; then
+ elif [ $pick == "n" ] || [ $pick == "N" ]; then
   echo "Skipping Empire install..."
   gtg=1
  else
@@ -65,10 +65,10 @@ gtg=0
 until [ $gtg -eq 1 ]; do
  echo -n "Would you like to install Peach Fuzzer? [y/n]: "
  read pick
- if [ $pick == "y" ]; then
+ if [ $pick == "y" ] || [ $pick == "Y" ]; then
   echo "Great! Do it yourself..."
   gtg=1
- elif [ $pick == "n" ]; then
+ elif [ $pick == "n" ] || [ $pick == "N" ]; then
   echo "Skipping Peach install..."
   gtg=1
  else
@@ -80,12 +80,12 @@ gtg=0
 until [ $gtg -eq 1 ]; do
  echo -n "Would you like to install MetasploitPro? [y/n]: "
  read pick
- if [ $pick == "y" ]; then
+ if [ $pick == "y" ] || [ $pick == 'Y" ]; then
   wget http://downloads.metasploit.com/data/releases/metasploit-latest-linux-x64-installer.run
   chmod +x metasploit-latest-linux-x64-installer.run
   ./metasploit-latest-linux-x64-installer.run
   gtg=1
- elif [ $pick == "n" ]; then
+ elif [ $pick == "n" ] || [ $pick == "N" ]; then
   echo "Skipping MetasploitPro install..."
   gtg=1
  else
